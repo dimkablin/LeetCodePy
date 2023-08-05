@@ -1,9 +1,13 @@
 class Solution:
     def intToRoman(self, num: int) -> str:
         roman = {1000: "M",
+                 900: "CM",
                  500: "D",
+                 400: "CD",
                  100: "C",
+                 90: "XC",
                  50: "L",
+                 40: "XL",
                  10: "X",
                  9: "IX",
                  5: "V",
@@ -13,6 +17,22 @@ class Solution:
 
         result = ""
 
-        #while num != 0:
+        i = iter(roman.items())
+        val = 4000
 
+        while num != 0:
+            if val > num:
+                val, symbol = i.__next__()
+            else:
+                result += symbol
+                num -= val
+
+        return result
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    result = solution.intToRoman(58)
+
+    print(result)
 
