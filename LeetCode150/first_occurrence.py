@@ -1,13 +1,15 @@
 class Solution:
     def strStr(self, haystack: str, needle: str) -> int:
-        k = 0
-        for i in range(len(haystack)):
-            if needle[k] == haystack[i]:
-                k += 1
-            else:
-                k = 0
 
-            if k == len(needle)-1:
-                return i-k
+        for i in range(len(haystack) - len(needle) + 1):
+            if needle == haystack[i:i + len(needle)]:
+                return i
 
         return -1
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    result = solution.strStr("abc", "c")
+
+    print(result)
