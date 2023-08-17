@@ -16,6 +16,6 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    res = solution.convert("0123456789abcd", 4)
+    res = solution.convert("0123456789abd", 4)
     print(res)
 
